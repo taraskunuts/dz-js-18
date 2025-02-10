@@ -18,7 +18,6 @@ const ingredients = [
     'Приправи',
   ]
   const ingredientsList = document.getElementById('ingredients')
-  const fragment = document.createDocumentFragment();
   ingredients.forEach(ingredient => {
     const li = document.createElement('li')
     li.textContent = ingredient
