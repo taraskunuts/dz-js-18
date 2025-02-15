@@ -1,13 +1,13 @@
-//смиренно прошу вибачення за затриманння дз але я не розуію як зробити 1 i 4 завдання
-
-
-
-
-
-
-
-
-
+//1
+const categories = document.querySelector('#categories').children
+console.log(`У списку ${categories.length} категорії.`)
+for (let item of categories) {
+  const categoryTitle = item.firstChild.textContent.trim()
+  const elementsCount = item.querySelector('ul').children.length
+  
+  console.log(`Категорія: ${categoryTitle}`)
+  console.log(`Кількість елементів: ${elementsCount}`)
+}
 //2
 const ingredients = [
     'Картопля',
@@ -18,6 +18,7 @@ const ingredients = [
     'Приправи',
   ]
   const ingredientsList = document.getElementById('ingredients')
+  const fragment = document.createDocumentFragment()
   ingredients.forEach(ingredient => {
     const li = document.createElement('li')
     li.textContent = ingredient
@@ -46,3 +47,16 @@ const images = [
     </li>
   `).join('')
   galleryList.insertAdjacentHTML('beforeend', galleryHTML)
+//4
+const decrementButton = document.querySelector('[data-action="decrement"]')
+const incrementButton = document.querySelector('[data-action="increment"]')
+const valueSpan = document.getElementById('value')
+let counterValue = 0
+decrementButton.addEventListener('click', () => {
+  counterValue -= 1
+  valueSpan.textContent = counterValue
+})
+incrementButton.addEventListener('click', () => {
+  counterValue += 1
+  valueSpan.textContent = counterValue
+})
